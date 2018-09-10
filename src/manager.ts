@@ -8,4 +8,5 @@ export class Manager extends ParkingBoy{
         this.parkingBoyList.push(parkingBoy);
     }
 
+
 }

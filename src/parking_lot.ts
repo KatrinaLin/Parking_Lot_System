@@ -11,7 +11,6 @@ export default class ParkingLot {
         return "Sorry, the parking lot is full.";
     }
 
-
     removeCar(): string {
         if (this.occupied > 0) {
             this.occupied--;

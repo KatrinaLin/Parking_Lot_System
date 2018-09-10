@@ -17,11 +17,36 @@ export class ParkingBoy {
         return pl[0].addCar();
     }
 
-
     remove(parkingLot: ParkingLot) {
         if (this.parkingLotList.indexOf(parkingLot) == -1) {
             return "Sorry, this is not my parking lot.";
         }
         return parkingLot.removeCar();
+    }
+
+    getSummary() {
+        // let totalCapacity = this.parkingLotList.reduce((sum, cur) => sum += cur.capacity, 0);
+        // let totalOccupied = this.parkingLotList.reduce((sum, cur) => sum += cur.occupied, 0);
+
+        let summary = this.parkingLotList.reduce((sum, cur) => {
+            sum.totalCapacity += cur.capacity;
+            sum.totalOccupied += cur.occupied;
+            return sum;
+        }, {totalCapacity: 0, totalOccupied: 0});
+        return summary;
+    }
+
+    getParkingLotSummary() {
+        return this.parkingLotList.reduce((msg, parkingLot) => {
+            msg += `\t\tP ${parkingLot.occupied} ${parkingLot.capacity}\n`;
+            return msg;
+        }, "");
+    }
+
+    getParkingBoyRecord() {
+        let summary = this.getSummary();
+        let message = `\tB ${summary.totalOccupied} ${summary.totalCapacity}\n`;
+        console.log(message + this.getParkingLotSummary());
+        return message + this.getParkingLotSummary();
     }
 }

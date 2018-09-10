@@ -44,4 +44,17 @@ describe("parking_boy", () => {
         expect(parkingLot.occupied).toBe(0);
     });
 
+    it("should print the current record", () => {
+        const parkingLot = new ParkingLot(5);
+        const parkingLot2 = new ParkingLot(10);
+
+        parkingBoy.assignParkingLot(parkingLot);
+        parkingBoy.assignParkingLot(parkingLot2);
+
+        parkingLot.occupied = 3;
+        parkingLot2.occupied = 2;
+
+        const record = parkingBoy.getParkingBoyRecord();
+        expect(record).toBe("\tB 5 15\n\t\tP 3 5\n\t\tP 2 10\n");
+    })
 })
