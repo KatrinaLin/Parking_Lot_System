@@ -8,4 +8,12 @@ export class ParkingBoy {
     assignParkingLot(parkingLot: ParkingLot) {
         this.parkingLotList.push(parkingLot);
     }
+
+    park(): string {
+        let pl = this.parkingLotList.filter(pl => pl.occupied < pl.capacity);
+        if (pl.length == 0) {
+            return "Sorry, all my parking lots are full."
+        }
+        return pl[0].addCar();
+    }
 }
