@@ -34,4 +34,14 @@ describe("parking_boy", () => {
         expect(pl2.occupied).toBe(0);
     });
 
+    it("should be able to remove car from assigned parking lot", () => {
+        const parkingLot = new ParkingLot(5);
+        parkingBoy.assignParkingLot(parkingLot);
+
+        parkingBoy.park();
+        parkingBoy.remove(parkingLot);
+
+        expect(parkingLot.occupied).toBe(0);
+    });
+
 })

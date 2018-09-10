@@ -16,4 +16,12 @@ export class ParkingBoy {
         }
         return pl[0].addCar();
     }
+
+
+    remove(parkingLot: ParkingLot) {
+        if (this.parkingLotList.indexOf(parkingLot) == -1) {
+            return "Sorry, this is not my parking lot.";
+        }
+        return parkingLot.removeCar();
+    }
 }
