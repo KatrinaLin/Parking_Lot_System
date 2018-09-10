@@ -26,6 +26,7 @@ describe("parking_lot", () => {
 
     it("should not increase the occupied number when the parking lot is full", () => {
         parking_lot.occupied = 10;
+        expect(parking_lot.occupied).toBe(10);
         expect(parking_lot.addCar()).toBe("Sorry, the parking lot is full.");
     })
 
@@ -34,5 +35,12 @@ describe("parking_lot", () => {
         parking_lot.removeCar();
         expect(parking_lot.occupied).toBe(9);
         expect(parking_lot.removeCar()).toBe("A car has been removed from the parking lot.");
+    });
+
+    it("should not decrease the occupied number when the parking lot is empty", () => {
+        parking_lot.occupied = 0;
+        parking_lot.removeCar();
+        expect(parking_lot.occupied).toBe(0);
+        expect(parking_lot.removeCar()).toBe("There is no car in the parking lot.");
     });
 })

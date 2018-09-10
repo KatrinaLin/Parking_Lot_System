@@ -17,6 +17,6 @@ export default class Parking_lot {
             this.occupied--;
             return "A car has been removed from the parking lot.";
         }
-        return "There is no car in the parking lot";
+        return "There is no car in the parking lot.";
     }
 }
