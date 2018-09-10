@@ -1,4 +1,4 @@
-export default class Parking_lot {
+export default class ParkingLot {
     constructor(public capacity:number) {
     }
     occupied: number = 0;
