@@ -25,9 +25,6 @@ export class ParkingBoy {
     }
 
     getSummary() {
-        // let totalCapacity = this.parkingLotList.reduce((sum, cur) => sum += cur.capacity, 0);
-        // let totalOccupied = this.parkingLotList.reduce((sum, cur) => sum += cur.occupied, 0);
-
         let summary = this.parkingLotList.reduce((sum, cur) => {
             sum.totalCapacity += cur.capacity;
             sum.totalOccupied += cur.occupied;
@@ -46,7 +43,6 @@ export class ParkingBoy {
     getParkingBoyRecord() {
         let summary = this.getSummary();
         let message = `\tB ${summary.totalOccupied} ${summary.totalCapacity}\n`;
-        console.log(message + this.getParkingLotSummary());
         return message + this.getParkingLotSummary();
     }
 }

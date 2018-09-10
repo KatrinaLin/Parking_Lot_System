@@ -43,4 +43,20 @@ describe("manager", () => {
         expect(manager.parkingBoyList.indexOf(pb2)).toBeGreaterThan(-1);
         expect(manager.parkingBoyList.indexOf(pb3)).toBeGreaterThan(-1);
     });
+
+    it("should print summary", () => {
+        const pb1 = new ParkingBoy("PBTom");
+        const pb2 = new SmartParkingBoy("SmartKavin");
+        const pb3 = new SuperParkingBoy("SuperMario");
+
+        pb1.assignParkingLot(new ParkingLot(5));
+        pb2.assignParkingLot(new ParkingLot(5));
+        pb3.assignParkingLot(new ParkingLot(5));
+        manager.assignParkingBoy(pb1);
+        manager.assignParkingBoy(pb2);
+        manager.assignParkingBoy(pb3);
+
+        let message = manager.getManagerRecord();
+        expect(message).toBe("M 0 15\n\tB 0 5\n\t\tP 0 5\n\tB 0 5\n\t\tP 0 5\n\tB 0 5\n\t\tP 0 5\n");
+    });
 })
