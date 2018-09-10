@@ -3,12 +3,20 @@ export default class Parking_lot {
     }
     occupied: number = 0;
 
-    addCar():void {
+    addCar():string {
         if (this.occupied < this.capacity) {
             this.occupied++;
-            return;
+            return "The car has been parked.";
         }
-        console.log("Sorry, the parking lot is full.");
+        return "Sorry, the parking lot is full.";
     }
 
+
+    removeCar(): string {
+        if (this.occupied > 0) {
+            this.occupied--;
+            return "A car has been removed from the parking lot.";
+        }
+        return "There is no car in the parking lot";
+    }
 }
